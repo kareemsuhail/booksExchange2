@@ -6,7 +6,7 @@ use Dingo\Api\Routing\Router;
 $api = app(Router::class);
 
 $api->version('v1', function (Router $api) {
-    $api->group(['prefix' => 'auth'], function(Router $api) {
+    $api->group(['prefix' => 'auth','middleware' => 'cors'], function(Router $api) {
         $api->post('signup', 'App\\Api\\V1\\Controllers\\SignUpController@signUp');
         $api->post('login', 'App\\Api\\V1\\Controllers\\LoginController@login');
 
@@ -19,7 +19,7 @@ $api->version('v1', function (Router $api) {
 
     });
 
-    $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
+    $api->group(['middleware' => ['jwt.auth','cors']], function(Router $api) {
         $api->get('protected', function() {
             return response()->json([
                 'message' => 'Access to protected resources granted! You are seeing this text as you provided the token correctly.'
