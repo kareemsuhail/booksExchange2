@@ -48,8 +48,9 @@ class BooksController extends Controller
 
         $book = new Book();
         $book->name = $request->input("name");
-        $book->type = $request->input("type");
+        $book->description = $request->input("description");
         $book->category = $request->input("category");
+        $book->status = $request->input("status");
         $user = Auth::user();
         $user->books()->save($book);
         return response()->json([
@@ -94,8 +95,9 @@ class BooksController extends Controller
         $book = Book::find($id);
         if (Auth::id() == $book->owner_id){
             $book->name = $request->input("name");
-            $book->type = $request->input("type");
+            $book->description = $request->input("description");
             $book->category = $request->input("category");
+            $book->status = $request->input("status");
             $user = Auth::user();
             $user->books()->saveMany([$book]);
             return response()->json([
