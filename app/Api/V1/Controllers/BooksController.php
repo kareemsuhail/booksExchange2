@@ -82,6 +82,20 @@ class BooksController extends Controller
     {
         //
     }
+    /* 
+        returns authenticated user books 
+    
+    */
+    public function myBooks(){
+        $user_id = Auth::id();
+        $books = Book::where('owner_id',$user_id)->get();
+       
+        return response()->json([
+            'status' => 'ok',
+            'books' => $books,
+        ], 200);
+
+    }
 
     /**
      * Update the specified resource in storage.

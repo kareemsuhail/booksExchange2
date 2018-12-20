@@ -44,4 +44,5 @@ $api->version('v1', function (Router $api) {
     $api->resource('books','App\\Api\\V1\\Controllers\\BooksController');
     $api->resource('offers','App\\Api\\V1\\Controllers\\OffersController');
     $api->resource('contact','App\\Api\\V1\\Controllers\\ContactController');
+    $api->get('mybooks','App\\Api\\V1\\Controllers\\BooksController@myBooks');
 });
