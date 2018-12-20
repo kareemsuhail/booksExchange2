@@ -21,7 +21,7 @@ please note that wea re using JWT based authentication so please send the token 
 | api/books         | Post      | store book                                      | name, category,status,description          | returns status 
  Ok                     |
 | api/books/{id}    | get       | returns book based on id                        |                                            | returns book object                    |
-| api/books/{id}    | Patch/Put | update book data based on id                    | name, type ,category                       | returns status ok or not authorized    |
+| api/books/{id}    | Patch/Put | update book data based on id                    | name, category,status,description          | returns status ok or not authorized    |
 | api/books/{id}    | Delete    | deletes a book based on book id                 |                                            | return status ok or not authorized     |
 | api/offers        | get       | returns all offers                              |                                            | returns array of offers                |
 | api/offers        | Post      | store offer                                     | type,book_id                               | return status ok 201                   |
